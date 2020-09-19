@@ -18,8 +18,13 @@ describe('<App />', () => {
     expect(wrapper.exists()).toBeTruthy();
   });
 
-  it('contains the Header', () => {
+  it('contains the header', () => {
     const header = findByTestAttr(wrapper, 'header-component');
     expect(header.exists()).toBeTruthy();
+  });
+
+  it('contains the stock form', () => {
+    const stockForm = findByTestAttr(wrapper, 'stock-form-component');
+    expect(stockForm.exists()).toBeTruthy();
   });
 });
