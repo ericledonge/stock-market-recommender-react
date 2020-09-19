@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.scss';
 import Header from './components/header/Header';
-import StockForm from './components/stock-form/StockForm';
+import StockForm from './components/form/stock-form/StockForm';
 
 function App() {
   return (
     <div>
       <Header data-test="header-component" />
-      <StockForm />
+      <StockForm data-test="stock-form-component" />
     </div>
   );
 }

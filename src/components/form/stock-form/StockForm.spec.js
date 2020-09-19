@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import StockForm from './StockForm';
-import { findByTestAttr } from '../../../test/testUtils';
+import { findByTestAttr } from '../../../../test/testUtils';
 
 const setup = () => {
   return shallow(<StockForm />);
@@ -21,5 +21,10 @@ describe('<StockForm />', () => {
   it('contains the stock selector', () => {
     const stockSelector = findByTestAttr(wrapper, 'stock-selector-component');
     expect(stockSelector.exists()).toBeTruthy();
+  });
+
+  it('contains the duration selector', () => {
+    const durationSelector = findByTestAttr(wrapper, 'duration-selector-component');
+    expect(durationSelector.exists()).toBeTruthy();
   });
 });

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import StockSelector from './StockSelector';
-import { findByTestAttr } from '../../../test/testUtils';
+import { findByTestAttr } from '../../../../test/testUtils';
 
 const setup = () => {
   return shallow(<StockSelector />);
@@ -24,7 +24,7 @@ describe('<StockSelector />', () => {
   });
 
   it('renders an input field', () => {
-    const stockInput = findByTestAttr(wrapper, 'stock-label');
+    const stockInput = findByTestAttr(wrapper, 'stock-input');
     expect(stockInput.html()).toContain('input');
   });
 });
