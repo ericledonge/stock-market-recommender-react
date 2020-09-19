@@ -1,7 +1,10 @@
 import React from 'react';
 import './DurationSelector.scss';
+import { useDuration } from '../../../context/durationContext';
 
 const DurationSelector = () => {
+  const [duration, setDuration] = useDuration();
+
   return (
     <div className="duration-selector">
       <label
@@ -11,6 +14,8 @@ const DurationSelector = () => {
         <input
           data-test="duration-input"
           className="duration-selector__input"
+          value={duration}
+          onChange={(event) => setDuration(event.target.value)}
         />
       </label>
     </div>

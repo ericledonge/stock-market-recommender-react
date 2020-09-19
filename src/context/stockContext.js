@@ -6,7 +6,7 @@ function useStock() {
   const context = React.useContext(StockContext);
 
   if (!context) {
-    throw new Error('useStock must be used within a SuccessProvider');
+    throw new Error('useStock must be used within a StockProvider');
   }
 
   return context;
