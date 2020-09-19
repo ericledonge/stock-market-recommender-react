@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #b5d4cc;
+  color: white;
+
+  &__title {
+    margin-top: 10px;
+    font-size: 4rem;
+  }
+
+  &__subtitle {
+    margin: 10px 0;
+    font-size: 1rem;
+    text-align: center;
+  }
+}
