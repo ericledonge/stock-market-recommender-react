@@ -1,19 +1,25 @@
 import React from 'react';
 import './StockForm.scss';
-import StockSelector from '../stock-selector/StockSelector';
-import DurationSelector from '../duration-selector/DurationSelector';
+import { useStock } from '../../../context/stockContext';
 
 const StockForm = () => {
+  const [stock, setStock] = useStock();
+
   return (
     <div className="stock-form">
-      <StockSelector
-        data-test="stock-selector-component"
-        className="stock-form__stock-selector"
-      />
-      <DurationSelector
-        data-test="duration-selector-component"
-        className="stock-form__duration-selector"
-      />
+      <div className="stock-selector">
+        <label
+          data-test="stock-label"
+          className="stock-selector__label"
+        >Stock Symbol
+          <input
+            data-test="stock-input"
+            className="stock-selector__input"
+            value={stock}
+            onChange={(event) => setStock(event.target.value)}
+          />
+        </label>
+      </div>
     </div>
   );
 };
