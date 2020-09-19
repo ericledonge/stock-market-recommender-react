@@ -5,9 +5,12 @@ import StockForm from './components/form/stock-form/StockForm';
 
 function App() {
   return (
-    <div>
+    <div className="app">
       <Header data-test="header-component" />
-      <StockForm data-test="stock-form-component" />
+      <div className="app__form">
+        <StockForm data-test="stock-form-component" />
+      </div>
+
     </div>
   );
 }
