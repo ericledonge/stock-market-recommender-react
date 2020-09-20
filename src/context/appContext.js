@@ -1,7 +1,7 @@
 import React from 'react';
 import { getRecommendation } from '../api/api';
 
-// I use a pattern suggested by Kent C. Dodds:
+// I use here a pattern suggested by Kent C. Dodds:
 // https://kentcdodds.com/blog/application-state-management-with-react
 
 const appContext = React.createContext();
@@ -40,7 +40,6 @@ function AppProvider(props) {
   const [state, dispatch] = React.useReducer(appReducer, {
     stock: '',
     duration: 10,
-    algorithmVersion: '1.0',
     mediaTypesAvailable: ['Facebook', 'Twitter', 'LinkedIn'],
     mediaTypeSelected: [],
     areResultsReady: false,
@@ -75,8 +74,8 @@ function useApp() {
     }
   };
 
-  const setResults = (stockSymbol, numberOfDays) => {
-    const response = getRecommendation(state.stock, state.duration, state.mediaTypeSelected, state.algorithmVersion);
+  const setResults = () => {
+    const response = getRecommendation(state.stock, state.duration, state.mediaTypeSelected);
     if (response) {
       dispatch({ type: 'SET_STOCK_PRICES', payload: response.prices });
       dispatch({ type: 'SET_RECOMMENDATION', payload: response.recommendation });
@@ -93,7 +92,7 @@ function useApp() {
     setDuration,
     setRecommendation,
     setMediaSelected,
-    setResults
+    setResults,
   };
 }
 

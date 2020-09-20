@@ -1,0 +1,16 @@
+.stock-prices {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	&__graph {
+		margin: 10px;
+	}
+
+	&__table {
+		display: flex;
+		justify-content: center;
+		margin: 10px;
+	}
+
+}

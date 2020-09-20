@@ -1,4 +1,5 @@
 import React from 'react';
+import './StockPrices.scss';
 import appContext from '../../../context/appContext';
 import { Line } from 'react-chartjs-2';
 
@@ -26,9 +27,27 @@ const StockPrices = () => {
         <Line
           data={dataMapped}
           options={{}}
-          width={400}
-          height={400}
+          width={350}
+          height={350}
         />
+      </div>
+      <div className="stock-prices__table">
+        <table>
+          <thead>
+          <tr>
+            <th>Day</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody>
+          {stockPrices.map((day, index) => (
+            <tr key={index}>
+              <td>{day.date}</td>
+              <td>{day.price}</td>
+            </tr>
+          ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

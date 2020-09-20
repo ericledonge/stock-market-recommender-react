@@ -4,9 +4,6 @@
 .results-container {
 	display: flex;
 	flex-direction: column;
-	//align-items: flex-start;
-	width: 100%;
-	//border: 1px solid black;
 
 	&__data {
 		display: flex;
@@ -21,8 +18,13 @@
 	&__table {
 		display: flex;
 		justify-content: center;
-		margin: 0 20px
 	}
+}
+
+.footer {
+	display: flex;
+	justify-content: center;
+	margin: 10px
 }
 
 @include breakpoint(small) {
@@ -32,11 +34,9 @@
 		align-items: flex-start;
 
 		&__data {
-			flex: 2 0 50%;
 		}
 
 		&__table {
-			flex: 2 0 50%;
 		}
 	}
 
