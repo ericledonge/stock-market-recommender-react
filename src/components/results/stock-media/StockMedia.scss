@@ -1,0 +1,16 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.stock-media {
+
+	&__title {
+		margin-bottom: 20px;
+	}
+
+	&__content {
+	}
+
+	&__item {
+		margin: 5px 0px;
+	}
+}

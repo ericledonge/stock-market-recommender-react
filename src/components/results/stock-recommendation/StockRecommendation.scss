@@ -1,0 +1,28 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.stock-recommendation {
+
+	&__label {
+	}
+
+	&__value {
+		margin-left: 5px;
+		text-transform: uppercase;
+		color: white;
+		font-weight: $bold;
+
+		&--buy {
+			background-color: lightgreen;
+		}
+
+		&--hold {
+			background-color: lightblue;
+		}
+
+		&--sell {
+			background-color: lightcoral;
+		}
+
+	}
+}

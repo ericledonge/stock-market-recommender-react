@@ -1,0 +1,14 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.stock-symbol {
+
+	&__label {
+	}
+
+	&__value {
+		margin-left: 5px;
+		text-transform: uppercase;
+		font-weight: $bold;
+	}
+}

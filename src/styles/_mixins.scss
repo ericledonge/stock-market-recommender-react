@@ -4,3 +4,25 @@
 		@content;
 	}
 }
+
+@mixin title() {
+	font-family: $base-font-family;
+	font-size: $large-font-size;
+	font-style: normal;
+	font-weight: $bold;
+	letter-spacing: 0.05em;
+}
+
+@mixin subtitle() {
+	font-family: $base-font-family;
+	font-size: $medium-font-size;
+	font-style: normal;
+	font-weight: $semi-bold;
+	letter-spacing: 0.05em;
+}
+
+@mixin content() {
+	font-family: $base-font-family;
+	font-size: $base-font-size;
+	font-style: normal;
+}

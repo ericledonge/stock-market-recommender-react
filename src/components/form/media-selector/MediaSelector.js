@@ -11,13 +11,12 @@ const MediaSelector = () => {
 
   return (
     <div className="media-selector">
-      <div>Social Media Types</div>
+      <div className="media-selector__label">Social media selection:</div>
 
-      {
-        mediaTypesAvailable.map((media, index) =>
-          <FormCheckbox key={index} label={media} selected={false} onChange={() => setMediaSelected(media)} />
-        )
-      }
+      {mediaTypesAvailable.map((media, index) =>
+        <div key={index} className="media-selector__item">
+          <FormCheckbox label={media} selected={false} onChange={() => setMediaSelected(media)} />
+        </div>)}
 
     </div>
   );
