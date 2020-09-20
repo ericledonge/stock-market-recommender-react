@@ -10,8 +10,7 @@ export const getRecommendation = (stockSymbol, numberOfDays, socialMediaTypes, a
   const stockMediaCount = socialMediaCountGenerator(socialMediaTypes);
   response.mediaCount = stockMediaCount;
 
-  const stockRecommendation = recommendationAlgorithm(stockPrices, stockMediaCount, algorithmVersion);
-  response.recommendation = stockRecommendation;
+  response.recommendation = recommendationAlgorithm(stockPrices, stockMediaCount, algorithmVersion);
 
   return response;
 };

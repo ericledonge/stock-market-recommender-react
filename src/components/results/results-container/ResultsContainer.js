@@ -31,7 +31,7 @@ const ResultsContainer = ({ algorithmVersion }) => {
     );
   }
 
-  return (<div></div>);
+  return (<div />);
 };
 
 export default ResultsContainer;

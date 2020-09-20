@@ -74,7 +74,7 @@ function useApp() {
     }
   };
 
-  const setResults = (stockSymbol, numberOfDays) => {
+  const setResults = () => {
     const response = getRecommendation(state.stock, state.duration, state.mediaTypeSelected);
     if (response) {
       dispatch({ type: 'SET_STOCK_PRICES', payload: response.prices });
