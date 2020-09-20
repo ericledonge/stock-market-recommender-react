@@ -1,10 +1,10 @@
 import React from 'react';
-import { useApp } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 
 const StockRecommendation = () => {
   const {
     state: { recommendation },
-  } = useApp();
+  } = appContext.useApp();
 
   return (
     <div className="stock-recommendation">

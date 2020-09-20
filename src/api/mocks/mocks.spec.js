@@ -7,12 +7,12 @@ import {
 } from './mocks';
 
 describe('stockPriceGenerator', () => {
+  const STOCK_SYMBOL = 'GOOG';
   const NUMBER_OF_DAYS = 3;
 
   describe('when duration is NUMBER_OF_DAYS day', () => {
     it('returns an array of NUMBER_OF_DAYS objects containing date and price', () => {
       const stockPrices = stockPriceGenerator(STOCK_SYMBOL, NUMBER_OF_DAYS);
-      console.log(stockPrices);
       expect(stockPrices).toHaveLength(3);
     });
   });
@@ -85,7 +85,6 @@ describe('socialMediaCountGenerator', () => {
   describe('when a single media type is provided', () => {
     it('returns an array with two object', () => {
       const result = socialMediaCountGenerator(['Twitter', 'LinkedIn']);
-      console.log(result);
       expect(result).toHaveLength(2);
     });
   });

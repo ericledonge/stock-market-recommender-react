@@ -1,10 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import StockSelector from './StockSelector';
 import { findByTestAttr } from '../../../../test/testUtils';
+import appContext from '../../../context/appContext';
 
 const setup = () => {
-  return shallow(<StockSelector />);
+  return mount(
+    <appContext.AppProvider>
+      <StockSelector />
+    </appContext.AppProvider>
+  );
 };
 
 describe('<StockSelector />', () => {
