@@ -2,13 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import FormContainer from './FormContainer';
 import { findByTestAttr } from '../../../../test/testUtils';
-import { AppProvider } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 
 const setup = () => {
   return mount(
-    <AppProvider>
+    <appContext.AppProvider>
       <FormContainer />
-    </AppProvider>
+    </appContext.AppProvider>
   );
 };
 

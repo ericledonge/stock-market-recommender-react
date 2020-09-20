@@ -1,5 +1,5 @@
 import React from 'react';
-import { useApp } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 import './MediaSelector.scss';
 import FormCheckbox from '../form-checkbox/FormCheckbox';
 
@@ -7,16 +7,7 @@ const MediaSelector = () => {
   const {
     state: { mediaTypesAvailable },
     setMediaSelected
-  } = useApp();
-
-  // const MyCheckBox = ({ media }) => {
-  //   return (
-  //     <div>
-  //       <input type="checkbox" />
-  //       <label>{media}</label>
-  //     </div>
-  //   );
-  // };
+  } = appContext.useApp();
 
   return (
     <div className="media-selector">
@@ -27,12 +18,6 @@ const MediaSelector = () => {
           <FormCheckbox key={index} label={media} selected={false} onChange={() => setMediaSelected(media)} />
         )
       }
-
-      {/*{*/}
-      {/*  mediaTypesAvailable.map((media, index) =>*/}
-      {/*    <MyCheckBox media={media} key={index} />*/}
-      {/*  )*/}
-      {/*}*/}
 
     </div>
   );

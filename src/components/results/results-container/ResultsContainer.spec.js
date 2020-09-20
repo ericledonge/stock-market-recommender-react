@@ -1,15 +1,15 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import ResultsContainer from './ResultsContainer';
-import { AppProvider } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 
 let mockAppContext;
 
 const setup = () => {
   return mount(
-    <AppProvider>
+    <appContext.AppProvider>
       <ResultsContainer />
-    </AppProvider>
+    </appContext.AppProvider>
   );
 };
 

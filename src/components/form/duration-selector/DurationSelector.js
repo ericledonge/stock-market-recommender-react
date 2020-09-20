@@ -1,12 +1,12 @@
 import React from 'react';
 import './DurationSelector.scss';
-import { useApp } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 
 const DurationSelector = () => {
   const {
     state: { duration },
     setDuration
-  } = useApp();
+  } = appContext.useApp();
 
   return (
     <div className="duration-selector">

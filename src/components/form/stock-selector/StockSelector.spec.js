@@ -2,13 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import StockSelector from './StockSelector';
 import { findByTestAttr } from '../../../../test/testUtils';
-import { AppProvider } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 
 const setup = () => {
   return mount(
-    <AppProvider>
+    <appContext.AppProvider>
       <StockSelector />
-    </AppProvider>
+    </appContext.AppProvider>
   );
 };
 

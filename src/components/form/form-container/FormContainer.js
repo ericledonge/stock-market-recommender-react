@@ -2,14 +2,14 @@ import React from 'react';
 import './FormContainer.scss';
 import StockSelector from '../stock-selector/StockSelector';
 import DurationSelector from '../duration-selector/DurationSelector';
-import { useApp } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 import MediaSelector from '../media-selector/MediaSelector';
 
 const FormContainer = () => {
   const {
     state: { stock },
     setResults
-  } = useApp();
+  } = appContext.useApp();
 
   const handleSubmit = () => {
     if (stock !== '') {

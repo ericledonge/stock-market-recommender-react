@@ -4,7 +4,7 @@ import { getRecommendation } from '../api/api';
 // I use a pattern suggested by Kent C. Dodds:
 // https://kentcdodds.com/blog/application-state-management-with-react
 
-const AppContext = React.createContext();
+const appContext = React.createContext();
 
 function appReducer(state, action) {
   switch (action.type) {
@@ -51,11 +51,11 @@ function AppProvider(props) {
 
   const value = React.useMemo(() => [state, dispatch], [state]);
 
-  return <AppContext.Provider value={value} {...props} />;
+  return <appContext.Provider value={value} {...props} />;
 }
 
 function useApp() {
-  const context = React.useContext(AppContext);
+  const context = React.useContext(appContext);
   if (!context) {
     throw new Error(`useApp must be used within a AppProvider`);
   }
@@ -97,4 +97,4 @@ function useApp() {
   };
 }
 
-export { AppProvider, useApp };
+export default { AppProvider, useApp };

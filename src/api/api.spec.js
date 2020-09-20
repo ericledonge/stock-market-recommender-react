@@ -7,3 +7,9 @@
 //     { prices: [{ date: day, price: $ }] },
 //   ];
 // };
+
+// TODO: More a file to design than to code...
+it('works', () => {
+  expect(true).toBeTruthy();
+});
+

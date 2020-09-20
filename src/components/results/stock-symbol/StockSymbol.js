@@ -1,10 +1,10 @@
 import React from 'react';
-import { useApp } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 
 const StockSymbol = () => {
   const {
     state: { stock },
-  } = useApp();
+  } = appContext.useApp();
 
   return (
     <div className="stock-symbol">

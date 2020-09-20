@@ -1,10 +1,10 @@
 import React from 'react';
-import { useApp } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 
 const StockMedia = () => {
   const {
     state: { mediaCount },
-  } = useApp();
+  } = appContext.useApp();
 
   return (
     <div className="stock-symbol">

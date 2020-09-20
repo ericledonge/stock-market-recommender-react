@@ -15,7 +15,6 @@ describe('helpers', () => {
         const startDate = tempDate.subtract(NUMBER_OF_DAYS, 'days');
         const results = getDates(startDate, stopDate);
         const expected = ['2019-01-29', '2019-01-30', '2019-01-31'];
-        console.log(results);
         expect(results).toEqual(expected);
       });
     });

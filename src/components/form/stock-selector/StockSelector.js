@@ -1,12 +1,12 @@
 import React from 'react';
 import './StockSelector.scss';
-import { useApp } from '../../../context/appContext';
+import appContext from '../../../context/appContext';
 
 const StockSelector = () => {
   const {
     state: { stock },
     setStock
-  } = useApp();
+  } = appContext.useApp();
 
   return (
     <div className="stock-selector">
