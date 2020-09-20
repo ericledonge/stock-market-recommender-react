@@ -4,12 +4,7 @@
 .form-container {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 	margin: 10px;
-
-	&__select {
-		margin: 10px 10px;
-	}
 
 	&__validation {
 		margin: 10px;
@@ -17,7 +12,4 @@
 }
 
 @include breakpoint(small) {
-
-	.form-container {
-	}
 }
