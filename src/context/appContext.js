@@ -57,13 +57,12 @@ function AppProvider(props) {
 function useApp() {
   const context = React.useContext(AppContext);
   if (!context) {
-    throw new Error(`useCount must be used within a CountProvider`);
+    throw new Error(`useApp must be used within a AppProvider`);
   }
   const [state, dispatch] = context;
 
   const setStock = (stock) => dispatch({ type: 'SET_STOCK_SYMBOL', payload: stock });
   const setDuration = (duration) => dispatch({ type: 'SET_DURATION', payload: duration });
-  const setAreResultsReady = (ready) => dispatch({ type: 'SET_RESULTS_READY', payload: ready });
   const setRecommendation = (recommendation) => dispatch({ type: 'SET_RECOMMENDATION', payload: recommendation });
 
   const setMediaSelected = (media) => {
@@ -77,7 +76,7 @@ function useApp() {
   };
 
   const setResults = (stockSymbol, numberOfDays) => {
-    const response = getRecommendation(stockSymbol, numberOfDays, state.mediaTypeSelected, state.algorithmVersion);
+    const response = getRecommendation(state.stock, state.duration, state.mediaTypeSelected, state.algorithmVersion);
     if (response) {
       dispatch({ type: 'SET_STOCK_PRICES', payload: response.prices });
       dispatch({ type: 'SET_RECOMMENDATION', payload: response.recommendation });

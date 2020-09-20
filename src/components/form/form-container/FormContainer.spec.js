@@ -1,13 +1,18 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import FormContainer from './StockForm';
+import { mount } from 'enzyme';
+import FormContainer from './FormContainer';
 import { findByTestAttr } from '../../../../test/testUtils';
+import { AppProvider } from '../../../context/appContext';
 
 const setup = () => {
-  return shallow(<FormContainer />);
+  return mount(
+    <AppProvider>
+      <FormContainer />
+    </AppProvider>
+  );
 };
 
-describe('<StockForm />', () => {
+describe('<FormContainer />', () => {
   let wrapper;
 
   beforeEach(() => {
@@ -25,6 +30,11 @@ describe('<StockForm />', () => {
 
   it('contains the duration selector', () => {
     const durationSelector = findByTestAttr(wrapper, 'duration-selector-component');
+    expect(durationSelector.exists()).toBeTruthy();
+  });
+
+  it('contains the medial selector', () => {
+    const durationSelector = findByTestAttr(wrapper, 'media-selector-component');
     expect(durationSelector.exists()).toBeTruthy();
   });
 });

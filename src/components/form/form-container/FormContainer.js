@@ -7,13 +7,13 @@ import MediaSelector from '../media-selector/MediaSelector';
 
 const FormContainer = () => {
   const {
-    state: { stock, duration },
+    state: { stock },
     setResults
   } = useApp();
 
   const handleSubmit = () => {
     if (stock !== '') {
-      setResults(stock, duration);
+      setResults();
     } else {
       // TODO: Refactor this ugly alert to put a Snackbar / Toast.
       alert('Please fill in Stock Symbol');
@@ -23,13 +23,13 @@ const FormContainer = () => {
   return (
     <div className="form-container">
       <div>
-        <StockSelector />
+        <StockSelector data-test="stock-selector-component" />
       </div>
       <div>
-        <DurationSelector />
+        <DurationSelector data-test="duration-selector-component" />
       </div>
       <div>
-        <MediaSelector />
+        <MediaSelector data-test="media-selector-component" />
       </div>
       <div>
         <button
