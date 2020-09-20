@@ -11,7 +11,14 @@ const StockForm = () => {
     <div className="stock-form">
       <StockSelector />
       <DurationSelector />
-      <button onClick={() => setAreResultsReady(true)}>Submit</button>
+      {/* TODO: Social Media Selector */}
+      {/* TODO: Algorithms Selector */}
+      <button
+        onClick={() => setAreResultsReady(true)}
+        className="stock-form__validation"
+      >
+        Submit
+      </button>
     </div>
   );
 };

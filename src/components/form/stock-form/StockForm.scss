@@ -5,6 +5,17 @@
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+	margin: 10px;
+
+	&__items {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	&__validation {
+		margin: 10px;
+	}
 }
 
 @include breakpoint(small) {
@@ -12,5 +23,10 @@
 	.stock-form {
 		flex-direction: row;
 		justify-content: center;
+		align-items: center;
+
+		&__validation {
+			margin: 10px;
+		}
 	}
 }
