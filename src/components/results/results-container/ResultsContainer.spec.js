@@ -7,6 +7,7 @@ import { findByTestAttr } from '../../../../test/testUtils';
 let state = {};
 
 const setup = ({ areResultsReady }) => {
+  state.recommendation = 'TO BUY';
   state.areResultsReady = areResultsReady || false;
   state.stockPrices = [{ date: '2020-09-20', price: 169 }];
   state.mediaCount = [{ mediaType: 'Facebook', positivePost: 9, negativePost: 4, attractiveness: 5 }];

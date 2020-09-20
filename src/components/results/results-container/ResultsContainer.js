@@ -16,8 +16,8 @@ const ResultsContainer = () => {
       <div className="results-container">
         <div className="results-container__data">
           <StockSymbol data-test="stock-symbol-component" />
-          <StockMedia />
           <StockRecommendation data-test="stock-recommendation-component" />
+          <StockMedia />
         </div>
         <div className="results-container__table">
           <StockPrices data-test="stock-prices-component" />

@@ -4,7 +4,7 @@
 .results-container {
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
+	//align-items: flex-start;
 	width: 100%;
 	//border: 1px solid black;
 
@@ -29,6 +29,7 @@
 
 	.results-container {
 		flex-direction: row;
+		align-items: flex-start;
 
 		&__data {
 			flex: 2 0 50%;
