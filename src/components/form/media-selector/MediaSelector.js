@@ -11,7 +11,7 @@ const MediaSelector = () => {
 
   return (
     <div className="media-selector">
-      <div className="media-selector__label">Social Media Types:</div>
+      <div className="media-selector__label">Social media selection:</div>
 
       {mediaTypesAvailable.map((media, index) =>
         <div key={index} className="media-selector__item">

@@ -1,4 +1,5 @@
 import React from 'react';
+import './ResultsContainer.scss';
 import appContext from '../../../context/appContext';
 import StockPrices from '../stock-prices/StockPrices';
 import StockSymbol from '../stock-symbol/StockSymbol';
