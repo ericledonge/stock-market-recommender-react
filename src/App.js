@@ -13,7 +13,9 @@ function App() {
         <div className="app__form">
           <StockForm data-test="stock-form-component" />
         </div>
-        <Results />
+        <div className="app__results">
+          <Results />
+        </div>
       </AppProvider>
     </div>
   );

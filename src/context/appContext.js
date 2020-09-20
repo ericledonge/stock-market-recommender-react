@@ -1,5 +1,8 @@
 import React from 'react';
-import { apiGetStockPrice } from '../api/api';
+import { getRecommendation } from '../api/api';
+
+// I use a pattern suggested by Kent C. Dodds:
+// https://kentcdodds.com/blog/application-state-management-with-react
 
 const AppContext = React.createContext();
 
@@ -48,7 +51,7 @@ function useApp() {
   const setAreResultsReady = (ready) => dispatch({ type: 'SET_RESULTS_READY', payload: ready });
 
   const setStockPrices = (stockSymbol, numberOfDays) => {
-    const response = apiGetStockPrice(stockSymbol, numberOfDays);
+    const response = getRecommendation(stockSymbol, numberOfDays);
     if (response) {
       dispatch({ type: 'SET_STOCK_PRICES', payload: response });
       dispatch({ type: 'SET_RESULTS_READY', payload: true });

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useApp } from '../../context/appContext';
 
+// TODO: Component too big: have to slice it.
 const Results = () => {
   const {
     state: { areResultsReady, stockPrices },
@@ -8,7 +9,7 @@ const Results = () => {
 
   if (areResultsReady) {
     return (
-      <div>
+      <div className="results">
         <table>
           <thead>
           <tr>
