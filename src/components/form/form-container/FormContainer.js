@@ -35,6 +35,7 @@ const FormContainer = () => {
         <button
           onClick={handleSubmit}
           className="stock-form__validation"
+          data-test="submit-button"
         >
           Submit
         </button>

@@ -7,6 +7,7 @@ import {
 } from './mocks';
 
 describe('stockPriceGenerator', () => {
+  const STOCK_SYMBOL = 'GOOG';
   const NUMBER_OF_DAYS = 3;
 
   describe('when duration is NUMBER_OF_DAYS day', () => {

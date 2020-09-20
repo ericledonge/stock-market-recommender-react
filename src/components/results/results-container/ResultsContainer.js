@@ -20,7 +20,7 @@ const ResultsContainer = () => {
           <StockMedia />
         </div>
         <div className="results-container__recommendation">
-          <StockRecommendation />
+          <StockRecommendation data-test="stock-recommendation-component" />
         </div>
         <div className="results-container__prices">
           <StockPrices data-test="stock-prices-component" />

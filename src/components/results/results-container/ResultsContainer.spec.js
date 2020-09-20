@@ -1,8 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { findByTestAttr } from '../../../../test/testUtils';
 import ResultsContainer from './ResultsContainer';
 import { AppProvider } from '../../../context/appContext';
+
+let mockAppContext;
 
 const setup = () => {
   return mount(
@@ -23,9 +24,18 @@ describe('<ResultsContainer />', () => {
     expect(wrapper.exists()).toBeTruthy();
   });
 
-  // Have to mock areResultsReady
-  it.skip('contains the stock prices', () => {
-    const stockPrices = findByTestAttr(wrapper, 'stock-prices-component');
-    expect(stockPrices.exists()).toBeTruthy();
-  });
+  // it('contains the stock symbol', () => {
+  //   const stockSymbol = findByTestAttr(wrapper, 'stock-symbol-component');
+  //   expect(stockSymbol.exists()).toBeTruthy();
+  // });
+  //
+  // it('contains the stock recommendation', () => {
+  //   const stockRecommendation = findByTestAttr(wrapper, 'stock-recommendation-component');
+  //   expect(stockRecommendation.exists()).toBeTruthy();
+  // });
+  //
+  // it('contains the stock prices', () => {
+  //   const stockPrices = findByTestAttr(wrapper, 'stock-prices-component');
+  //   expect(stockPrices.exists()).toBeTruthy();
+  // });
 });

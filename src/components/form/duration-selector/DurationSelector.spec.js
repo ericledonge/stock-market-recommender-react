@@ -1,10 +1,15 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import DurationSelector from './DurationSelector';
 import { findByTestAttr } from '../../../../test/testUtils';
+import { AppProvider } from '../../../context/appContext';
 
 const setup = () => {
-  return shallow(<DurationSelector />);
+  return mount(
+    <AppProvider>
+      <DurationSelector />
+    </AppProvider>
+  );
 };
 
 describe('<DurationSelector />', () => {
