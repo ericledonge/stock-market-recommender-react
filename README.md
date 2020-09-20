@@ -1,3 +1,25 @@
+This application is available here: https://nervous-jennings-48471a.netlify.app/
+
+Dear reader,
+
+I am a 'not so young' junior developer with one year of experience.
+
+In my projects, I am using Vue. I love Vue, but as it is my first JS framework, I don't have much point of comparison with other frameworks.
+
+This weekend, I decided to do this little project with React.
+
+When I work in Vue, I use the store Vuex. But for this React project, I decided to use Hooks and the Context API. I was curious to try them, since the new version of Vue, namely Vue 3, copies the Hooks and the Context API of React. 
+
+For this project, I started to discover React through this course: https://www.udemy.com/course/react-testing-with-jest-and-enzyme/. 
+
+The part of this course dedicated to Hooks and the Context API is based on an Application State Management pattern suggested by Kent C. Dodds in this article: https://kentcdodds.com/blog/application-state-management-with-react
+
+Thanks for you reading, best,
+
+Eric
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
