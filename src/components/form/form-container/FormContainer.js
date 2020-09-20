@@ -11,6 +11,15 @@ const FormContainer = () => {
     setResults
   } = useApp();
 
+  const handleSubmit = () => {
+    if (stock !== '') {
+      setResults(stock, duration);
+    } else {
+      // TODO: Refactor this ugly alert to put a Snackbar / Toast.
+      alert('Please fill in Stock Symbol');
+    }
+  };
+
   return (
     <div className="form-container">
       <div>
@@ -24,7 +33,7 @@ const FormContainer = () => {
       </div>
       <div>
         <button
-          onClick={() => setResults(stock, duration)}
+          onClick={handleSubmit}
           className="stock-form__validation"
         >
           Submit
