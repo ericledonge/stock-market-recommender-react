@@ -1,7 +1,13 @@
 import React from 'react';
 import './StockSelector.scss';
+import { useApp } from '../../../context/appContext';
 
 const StockSelector = () => {
+  const {
+    state: { stock },
+    setStock
+  } = useApp();
+
   return (
     <div className="stock-selector">
       <label
@@ -11,6 +17,8 @@ const StockSelector = () => {
         <input
           data-test="stock-input"
           className="stock-selector__input"
+          value={stock}
+          onChange={(event) => setStock(event.target.value)}
         />
       </label>
     </div>
