@@ -4,9 +4,6 @@
 .results-container {
 	display: flex;
 	flex-direction: column;
-	//align-items: flex-start;
-	width: 100%;
-	//border: 1px solid black;
 
 	&__data {
 		display: flex;
@@ -21,7 +18,6 @@
 	&__table {
 		display: flex;
 		justify-content: center;
-		margin: 0 20px
 	}
 }
 
@@ -30,13 +26,12 @@
 	.results-container {
 		flex-direction: row;
 		align-items: flex-start;
+		//width: 800px;
 
 		&__data {
-			flex: 2 0 50%;
 		}
 
 		&__table {
-			flex: 2 0 50%;
 		}
 	}
 
