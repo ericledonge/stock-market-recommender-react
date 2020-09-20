@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import StockForm from './StockForm';
+import FormContainer from './StockForm';
 import { findByTestAttr } from '../../../../test/testUtils';
 
 const setup = () => {
-  return shallow(<StockForm />);
+  return shallow(<FormContainer />);
 };
 
 describe('<StockForm />', () => {

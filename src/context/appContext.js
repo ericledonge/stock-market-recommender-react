@@ -26,6 +26,9 @@ function appReducer(state, action) {
     case 'SET_MEDIA_COUNT': {
       return { ...state, mediaCount: action.payload };
     }
+    case 'SET_MEDIA_SELECTED': {
+      return { ...state, mediaTypeSelected: action.payload };
+    }
     default: {
       throw new Error(`Unsupported action type: ${action.type}`);
     }
@@ -37,6 +40,8 @@ function AppProvider(props) {
   const [state, dispatch] = React.useReducer(appReducer, {
     stock: '',
     duration: 10,
+    mediaTypesAvailable: ['Facebook', 'Twitter', 'LinkedIn'],
+    mediaTypeSelected: [],
     areResultsReady: false,
     stockPrices: [],
     recommendation: '',
@@ -60,8 +65,18 @@ function useApp() {
   const setAreResultsReady = (ready) => dispatch({ type: 'SET_RESULTS_READY', payload: ready });
   const setRecommendation = (recommendation) => dispatch({ type: 'SET_RECOMMENDATION', payload: recommendation });
 
+  const setMediaSelected = (media) => {
+    if (!state.mediaTypeSelected.includes(media)) {
+      state.mediaTypeSelected.push(media);
+      dispatch({ type: 'SET_MEDIA_SELECTED', payload: state.mediaTypeSelected });
+    } else {
+      state.mediaTypeSelected = state.mediaTypeSelected.filter(e => e !== media);
+      dispatch({ type: 'SET_MEDIA_SELECTED', payload: state.mediaTypeSelected });
+    }
+  };
+
   const setResults = (stockSymbol, numberOfDays) => {
-    const response = getRecommendation(stockSymbol, numberOfDays);
+    const response = getRecommendation(stockSymbol, numberOfDays, state.mediaTypeSelected);
     if (response) {
       dispatch({ type: 'SET_STOCK_PRICES', payload: response.prices });
       dispatch({ type: 'SET_RECOMMENDATION', payload: response.recommendation });
@@ -77,6 +92,7 @@ function useApp() {
     setStock,
     setDuration,
     setRecommendation,
+    setMediaSelected,
     setResults
   };
 }
