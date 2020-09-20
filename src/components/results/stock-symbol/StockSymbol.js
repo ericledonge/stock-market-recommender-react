@@ -1,4 +1,5 @@
 import React from 'react';
+import './StockSymbol.scss';
 import appContext from '../../../context/appContext';
 
 const StockSymbol = () => {
@@ -8,7 +9,8 @@ const StockSymbol = () => {
 
   return (
     <div className="stock-symbol">
-      Stock Symbol {stock}
+      <span className="stock-symbol__label">Stock Symbol:</span>
+      <span className="stock-symbol__value">{stock}</span>
     </div>
   );
 };

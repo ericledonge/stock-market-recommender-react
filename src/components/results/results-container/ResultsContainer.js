@@ -14,16 +14,12 @@ const ResultsContainer = () => {
   if (areResultsReady) {
     return (
       <div className="results-container">
-        <div className="results-container__title">
+        <div className="results-container__data">
           <StockSymbol data-test="stock-symbol-component" />
-        </div>
-        <div>
           <StockMedia />
-        </div>
-        <div className="results-container__recommendation">
           <StockRecommendation data-test="stock-recommendation-component" />
         </div>
-        <div className="results-container__prices">
+        <div className="results-container__table">
           <StockPrices data-test="stock-prices-component" />
         </div>
       </div>
