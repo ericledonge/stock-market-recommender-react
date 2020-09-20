@@ -15,3 +15,7 @@ export const getRecommendation = (stockSymbol, numberOfDays, socialMediaTypes, a
 
   return response;
 };
+
+export const getInitialParameters = () => {
+  return { initialAlgorithmVersion: '1.0' };
+};

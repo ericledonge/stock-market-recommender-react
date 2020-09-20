@@ -21,12 +21,17 @@
 	}
 }
 
+.footer {
+	display: flex;
+	justify-content: center;
+	margin: 10px
+}
+
 @include breakpoint(small) {
 
 	.results-container {
 		flex-direction: row;
 		align-items: flex-start;
-		//width: 800px;
 
 		&__data {
 		}
