@@ -7,7 +7,7 @@ import { useApp } from '../../../context/appContext';
 const StockForm = () => {
   const {
     state: { stock, duration },
-    setStockPrices
+    setResults
   } = useApp();
 
   return (
@@ -17,7 +17,7 @@ const StockForm = () => {
       {/* TODO: Social Media Selector */}
       {/* TODO: Algorithms Selector */}
       <button
-        onClick={() => setStockPrices(stock, duration)}
+        onClick={() => setResults(stock, duration)}
         className="stock-form__validation"
       >
         Submit

@@ -1,4 +1,5 @@
 import moment from 'moment';
+import { getDates, getRoundedRandomNumber } from '../helpers/helpers';
 
 export const stockPriceGenerator = (stockSymbol, numberOfDays) => {
   const startDate = moment().subtract(numberOfDays, 'days');
@@ -10,17 +11,26 @@ export const stockPriceGenerator = (stockSymbol, numberOfDays) => {
   return results;
 };
 
-export const getDates = (startDate, stopDate, numberOfDays) => {
-  const dateArray = [];
-  let currentDate = moment(startDate).add(1, 'days');
-  const endDate = moment(stopDate);
-  while (currentDate <= endDate) {
-    dateArray.push(moment(currentDate).format('YYYY-MM-DD'));
-    currentDate = moment(currentDate).add(1, 'days');
+export const socialMediaCountGenerator = (socialMediaTypes) => {
+  let results = [];
+  let mediaType;
+  let positivePost;
+  let negativePost;
+
+  for (const socialMediaType of socialMediaTypes) {
+    mediaType = socialMediaType;
+    positivePost = getRoundedRandomNumber(1000, 100000);
+    negativePost = getRoundedRandomNumber(1000, 100000);
+
+    results.push({ mediaType: mediaType, positivePost: positivePost, negativePost: negativePost });
   }
-  return dateArray;
+
+  return results;
 };
 
-export const getRoundedRandomNumber = (min, max) => {
-  return Math.round(Math.random() * (max - min) + min);
+// TODO: Make it smarter by taking in account SocialMediaCount results
+export const recommendationAlgorithm = (stockPrices, socialMediaCount, algorithmVersion) => {
+  const values = ['BUY', 'HOLD', 'SELL'];
+  const result = values[Math.floor(Math.random() * values.length)];
+  return result;
 };

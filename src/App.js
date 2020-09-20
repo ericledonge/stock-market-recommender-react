@@ -2,7 +2,7 @@ import React from 'react';
 import './App.scss';
 import Header from './components/header/Header';
 import StockForm from './components/form/stock-form/StockForm';
-import Results from './components/results/Results';
+import ResultsContainer from './components/results/results-container/ResultsContainer';
 import { AppProvider } from './context/appContext';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
           <StockForm data-test="stock-form-component" />
         </div>
         <div className="app__results">
-          <Results />
+          <ResultsContainer />
         </div>
       </AppProvider>
     </div>
