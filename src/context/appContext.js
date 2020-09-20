@@ -1,4 +1,5 @@
 import React from 'react';
+import { apiGetStockPrice } from '../api/api';
 
 const AppContext = React.createContext();
 
@@ -13,6 +14,9 @@ function appReducer(state, action) {
     case 'SET_RESULTS_READY': {
       return { ...state, areResultsReady: action.payload };
     }
+    case 'SET_STOCK_PRICES': {
+      return { ...state, stockPrices: action.payload };
+    }
     default: {
       throw new Error(`Unsupported action type: ${action.type}`);
     }
@@ -23,7 +27,8 @@ function AppProvider(props) {
   const [state, dispatch] = React.useReducer(appReducer, {
     stock: '',
     duration: 10,
-    areResultsReady: false
+    areResultsReady: false,
+    stockPrices: []
   });
 
   const value = React.useMemo(() => [state, dispatch], [state]);
@@ -42,12 +47,23 @@ function useApp() {
   const setDuration = (duration) => dispatch({ type: 'SET_DURATION', payload: duration });
   const setAreResultsReady = (ready) => dispatch({ type: 'SET_RESULTS_READY', payload: ready });
 
+  const setStockPrices = (stockSymbol, numberOfDays) => {
+    const response = apiGetStockPrice(stockSymbol, numberOfDays);
+    if (response) {
+      dispatch({ type: 'SET_STOCK_PRICES', payload: response });
+      dispatch({ type: 'SET_RESULTS_READY', payload: true });
+    } else {
+      dispatch({ type: 'SET_RESULTS_READY', payload: false });
+    }
+  };
+
   return {
     state,
     dispatch,
     setStock,
     setDuration,
-    setAreResultsReady
+    setAreResultsReady,
+    setStockPrices
   };
 }
 

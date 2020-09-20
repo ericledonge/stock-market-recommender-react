@@ -1,5 +1,6 @@
 import { stockPriceGenerator } from './mocks/mocks';
 
-export const getStockPrice = (stockSymbol, numberOfDays) => {
+// TODO: Make it async and use setTimeInterval
+export const apiGetStockPrice = (stockSymbol, numberOfDays) => {
   return stockPriceGenerator(stockSymbol, numberOfDays);
 };

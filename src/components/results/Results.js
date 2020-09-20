@@ -3,16 +3,33 @@ import { useApp } from '../../context/appContext';
 
 const Results = () => {
   const {
-    state: { stock, duration, areResultsReady },
+    state: { areResultsReady, stockPrices },
   } = useApp();
 
   if (areResultsReady) {
-    return (<div>The stock is {stock} et the duration is {duration}</div>);
+    return (
+      <div>
+        <table>
+          <thead>
+          <tr>
+            <th>Day</th>
+            <th>Price</th>
+          </tr>
+          </thead>
+          <tbody>
+          {stockPrices.map((day, index) => (
+            <tr key={index}>
+              <td>{day.date}</td>
+              <td>{day.price}</td>
+            </tr>
+          ))}
+          </tbody>
+        </table>
+      </div>
+    );
   }
 
   return (<div></div>);
-
-
 };
 
 export default Results;

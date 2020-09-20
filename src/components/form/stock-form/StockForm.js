@@ -5,7 +5,10 @@ import DurationSelector from '../duration-selector/DurationSelector';
 import { useApp } from '../../../context/appContext';
 
 const StockForm = () => {
-  const { setAreResultsReady } = useApp();
+  const {
+    state: { stock, duration },
+    setStockPrices
+  } = useApp();
 
   return (
     <div className="stock-form">
@@ -14,7 +17,7 @@ const StockForm = () => {
       {/* TODO: Social Media Selector */}
       {/* TODO: Algorithms Selector */}
       <button
-        onClick={() => setAreResultsReady(true)}
+        onClick={() => setStockPrices(stock, duration)}
         className="stock-form__validation"
       >
         Submit
