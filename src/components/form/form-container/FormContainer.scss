@@ -13,17 +13,37 @@
 		align-items: flex-end;
 	}
 
+	&__checkbox {
+		display: flex;
+		align-items: flex-end;
+		width: 100%;
+	}
+
 	&__validation {
+		display: flex;
+		justify-content: center;
 		margin: 10px;
+		width: 100%;
 	}
 }
 
 @include breakpoint(small) {
 
 	.form-container {
-		flex-direction: row;
-		justify-content: center;
+		display: flex;
 		align-items: center;
+
+		&__items {
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+
+		&__checkbox {
+			width: 100%;
+		}
+
 
 		&__validation {
 			margin: 10px;
