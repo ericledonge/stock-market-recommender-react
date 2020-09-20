@@ -3,15 +3,22 @@ import { useApp } from '../../../context/appContext';
 
 const StockMedia = () => {
   const {
-    state: { mediaTypeSelected },
+    state: { mediaCount },
   } = useApp();
 
   return (
     <div className="stock-symbol">
-      Media Types Selected:
-      {
-        mediaTypeSelected.map((media, index) => media)
-      }
+      <div>
+        Media Count Analysis:
+        {
+          mediaCount.map((media, index) => (
+            <div key={index}>
+              For {media.mediaType}: Attractiveness: {media.attractiveness}, Positive Posts: {media.positivePost},
+              Negative posts: {media.negativePost}
+            </div>
+          ))
+        }
+      </div>
     </div>
   );
 };

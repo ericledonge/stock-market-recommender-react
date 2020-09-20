@@ -40,6 +40,7 @@ function AppProvider(props) {
   const [state, dispatch] = React.useReducer(appReducer, {
     stock: '',
     duration: 10,
+    algorithmVersion: '1.0',
     mediaTypesAvailable: ['Facebook', 'Twitter', 'LinkedIn'],
     mediaTypeSelected: [],
     areResultsReady: false,
@@ -76,7 +77,7 @@ function useApp() {
   };
 
   const setResults = (stockSymbol, numberOfDays) => {
-    const response = getRecommendation(stockSymbol, numberOfDays, state.mediaTypeSelected);
+    const response = getRecommendation(stockSymbol, numberOfDays, state.mediaTypeSelected, state.algorithmVersion);
     if (response) {
       dispatch({ type: 'SET_STOCK_PRICES', payload: response.prices });
       dispatch({ type: 'SET_RECOMMENDATION', payload: response.recommendation });

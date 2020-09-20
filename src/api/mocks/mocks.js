@@ -16,21 +16,41 @@ export const socialMediaCountGenerator = (socialMediaTypes) => {
   let mediaType;
   let positivePost;
   let negativePost;
+  let attractiveness;
 
   for (const socialMediaType of socialMediaTypes) {
     mediaType = socialMediaType;
     positivePost = getRoundedRandomNumber(1000, 100000);
     negativePost = getRoundedRandomNumber(1000, 100000);
+    attractiveness = positivePost - negativePost;
 
-    results.push({ mediaType: mediaType, positivePost: positivePost, negativePost: negativePost });
+    results.push({
+      mediaType: mediaType,
+      positivePost: positivePost,
+      negativePost: negativePost,
+      attractiveness: attractiveness
+    });
   }
 
   return results;
 };
 
-// TODO: Make it smarter by taking in account SocialMediaCount results
 export const recommendationAlgorithm = (stockPrices, socialMediaCount, algorithmVersion) => {
-  const values = ['BUY', 'HOLD', 'SELL'];
-  const result = values[Math.floor(Math.random() * values.length)];
+
+  const globalAttractiveness = socialMediaCount.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.attractiveness;
+  }, 0);
+
+  let result;
+  if (globalAttractiveness > 10000) {
+    result = 'BUY';
+  } else {
+    if (globalAttractiveness > -10000) {
+      result = 'HOLD';
+    } else {
+      result = 'SELL';
+    }
+  }
+
   return result;
 };

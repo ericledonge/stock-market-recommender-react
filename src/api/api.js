@@ -7,11 +7,11 @@ export const getRecommendation = (stockSymbol, numberOfDays, socialMediaTypes, a
   const stockPrices = stockPriceGenerator(stockSymbol, numberOfDays);
   response.prices = stockPrices;
 
-  const stockRecommendation = recommendationAlgorithm();
-  response.recommendation = stockRecommendation;
-
   const stockMediaCount = socialMediaCountGenerator(socialMediaTypes);
   response.mediaCount = stockMediaCount;
+
+  const stockRecommendation = recommendationAlgorithm(stockPrices, stockMediaCount, algorithmVersion);
+  response.recommendation = stockRecommendation;
 
   return response;
 };

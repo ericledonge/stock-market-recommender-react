@@ -7,7 +7,7 @@ import MediaSelector from '../media-selector/MediaSelector';
 
 const FormContainer = () => {
   const {
-    state: { stock, duration, media },
+    state: { stock, duration },
     setResults
   } = useApp();
 
