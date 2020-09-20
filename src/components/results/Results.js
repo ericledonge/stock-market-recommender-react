@@ -1,12 +1,18 @@
 import React from 'react';
-import { useStock } from '../../context/stockContext';
-import { useDuration } from '../../context/durationContext';
+import { useApp } from '../../context/appContext';
 
 const Results = () => {
-  const [stock] = useStock();
-  const [duration] = useDuration();
+  const {
+    state: { stock, duration, areResultsReady },
+  } = useApp();
 
-  return (<div>The stock is {stock} et the duration is {duration}</div>);
+  if (areResultsReady) {
+    return (<div>The stock is {stock} et the duration is {duration}</div>);
+  }
+
+  return (<div></div>);
+
+
 };
 
 export default Results;
