@@ -22,23 +22,20 @@ const FormContainer = () => {
 
   return (
     <div className="form-container">
-      <StockSelector data-test="stock-selector-component" />
-      <DurationSelector data-test="duration-selector-component" />
-      <MediaSelector data-test="media-selector-component" />
-
-      <div className="form-container__select">
-        <label>Algorithm: </label>
-        <select>
-          <option value="regular">Regular</option>
-          <option value="advanced">Advanced</option>
-        </select>
+      <div>
+        <StockSelector data-test="stock-selector-component" />
       </div>
-
-      <div className="form-container__validation">
+      <div>
+        <DurationSelector data-test="duration-selector-component" />
+      </div>
+      <div>
+        <MediaSelector data-test="media-selector-component" />
+      </div>
+      <div>
         <button
           onClick={handleSubmit}
-          className=" stock-form__validation"
-          data-test=" submit-button"
+          className="stock-form__validation"
+          data-test="submit-button"
         >
           Submit
         </button>
