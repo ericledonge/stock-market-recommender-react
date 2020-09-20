@@ -4,9 +4,21 @@ import FormContainer from './FormContainer';
 import { findByTestAttr } from '../../../../test/testUtils';
 import appContext from '../../../context/appContext';
 
-const setup = () => {
+let state = {};
+
+jest.spyOn(window, 'alert').mockImplementation(() => {
+});
+
+let dispatch = jest.fn();
+
+const setup = ({ stock }) => {
+  state.stock = stock || '';
+  state.duration = 10;
+  state.mediaTypesAvailable = ['Twitter'];
+  state.mediaTypeSelected = state.mediaTypesAvailable;
+
   return mount(
-    <appContext.AppProvider>
+    <appContext.AppProvider value={[state, dispatch]}>
       <FormContainer />
     </appContext.AppProvider>
   );
@@ -16,7 +28,8 @@ describe('<FormContainer />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = setup();
+    wrapper = setup({});
+    dispatch.mockClear();
   });
 
   it('renders without error', () => {
@@ -36,5 +49,23 @@ describe('<FormContainer />', () => {
   it('contains the medial selector', () => {
     const durationSelector = findByTestAttr(wrapper, 'media-selector-component');
     expect(durationSelector.exists()).toBeTruthy();
+  });
+
+  describe('when stock is empty', () => {
+    it('does not call dispatch', () => {
+      wrapper = setup({});
+      const submitButton = findByTestAttr(wrapper, 'submit-button');
+      submitButton.simulate('click');
+      expect(dispatch).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when stock is not empty', () => {
+    it('calls dispatch', () => {
+      wrapper = setup({ stock: 'GOOG' });
+      const submitButton = findByTestAttr(wrapper, 'submit-button');
+      submitButton.simulate('click');
+      expect(dispatch).toHaveBeenCalled();
+    });
   });
 });
