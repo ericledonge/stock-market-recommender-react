@@ -4,7 +4,7 @@ import Header from './components/header/Header';
 import FormContainer from './components/form/form-container/FormContainer';
 import ResultsContainer from './components/results/results-container/ResultsContainer';
 import appContext from './context/appContext';
-import actions from './actions/actions';
+import { getParameters } from './actions/actions';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -27,9 +27,13 @@ function App() {
     dispatch({ type: 'SET_ALGORITHM_VERSION', payload: algorithmVersion });
   };
 
-  React.useEffect(
-    () => {
-      actions.getParameters(setAlgorithmVersion);
+  React.useEffect(() => {
+      async function fetchInitialParameters() {
+        const result = await getParameters();
+        setAlgorithmVersion(result.initialAlgorithmVersion);
+      }
+
+      fetchInitialParameters();
     },
     []
   );

@@ -1,7 +1,6 @@
 import { recommendationAlgorithm, socialMediaCountGenerator, stockPriceGenerator } from './mocks/mocks';
 
-// TODO: Make it async and use setTimeInterval to simulate network latency + spinner
-export const getRecommendation = (stockSymbol, numberOfDays, socialMediaTypes, algorithmVersion) => {
+export const mockRecommendationApi = (stockSymbol, numberOfDays, socialMediaTypes, algorithmVersion) => {
   let response = {};
 
   const stockPrices = stockPriceGenerator(stockSymbol, numberOfDays);
@@ -15,6 +14,6 @@ export const getRecommendation = (stockSymbol, numberOfDays, socialMediaTypes, a
   return response;
 };
 
-export const getInitialParameters = () => {
+export const mockInitialParameters = () => {
   return { initialAlgorithmVersion: '1.0' };
 };

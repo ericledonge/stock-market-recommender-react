@@ -1,12 +1,5 @@
-import { getInitialParameters } from '../api/api';
+import { getInitialParameters } from '../services/services';
 
-const getParameters = async (setAlgorithmVersion) => {
-  try {
-    const response = getInitialParameters();
-    setAlgorithmVersion(response.initialAlgorithmVersion);
-  } catch (e) {
-
-  }
+export const getParameters = async () => {
+  return await getInitialParameters();
 };
-
-export default { getParameters };

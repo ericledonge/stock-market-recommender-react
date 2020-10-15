@@ -38,16 +38,19 @@ describe('<FormContainer />', () => {
 
   it('contains the stock selector', () => {
     const stockSelector = findByTestAttr(wrapper, 'stock-selector-component');
+
     expect(stockSelector.exists()).toBeTruthy();
   });
 
   it('contains the duration selector', () => {
     const durationSelector = findByTestAttr(wrapper, 'duration-selector-component');
+
     expect(durationSelector.exists()).toBeTruthy();
   });
 
   it('contains the medial selector', () => {
     const durationSelector = findByTestAttr(wrapper, 'media-selector-component');
+
     expect(durationSelector.exists()).toBeTruthy();
   });
 
@@ -56,15 +59,19 @@ describe('<FormContainer />', () => {
       wrapper = setup({});
       const submitButton = findByTestAttr(wrapper, 'submit-button');
       submitButton.simulate('click');
+
       expect(dispatch).not.toHaveBeenCalled();
     });
   });
 
   describe('when stock is not empty', () => {
-    it('calls dispatch', () => {
+    it('calls dispatch', async () => {
+      const runAllPromises = () => new Promise(setImmediate);
       wrapper = setup({ stock: 'GOOG' });
       const submitButton = findByTestAttr(wrapper, 'submit-button');
       submitButton.simulate('click');
+      await runAllPromises();
+
       expect(dispatch).toHaveBeenCalled();
     });
   });

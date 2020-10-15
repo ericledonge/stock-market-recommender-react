@@ -1,5 +1,5 @@
 import React from 'react';
-import { getRecommendation } from '../api/api';
+import { getRecommendation } from '../services/services';
 
 // I use here a pattern suggested by Kent C. Dodds:
 // https://kentcdodds.com/blog/application-state-management-with-react
@@ -35,7 +35,6 @@ function appReducer(state, action) {
   }
 }
 
-// TODO: Manage api errors
 function AppProvider(props) {
   const [state, dispatch] = React.useReducer(appReducer, {
     stock: '',
@@ -74,8 +73,8 @@ function useApp() {
     }
   };
 
-  const setResults = () => {
-    const response = getRecommendation(state.stock, state.duration, state.mediaTypeSelected);
+  const setResults = async () => {
+    const response = await getRecommendation(state.stock, state.duration, state.mediaTypeSelected);
     if (response) {
       dispatch({ type: 'SET_STOCK_PRICES', payload: response.prices });
       dispatch({ type: 'SET_RECOMMENDATION', payload: response.recommendation });
